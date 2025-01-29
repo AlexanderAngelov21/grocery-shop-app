@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Shop Till</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+<h1>Grocery Shop Till</h1>
+
+<div id="products">
+    <h2>Products</h2>
+    <input type="text" id="productName" placeholder="Product Name">
+    <input type="number" id="productPrice" placeholder="Price (clouds)">
+    <button onclick="addProduct()">Add Product</button>
+    <ul id="productList"></ul>
+</div>
+
+<div id="deals">
+    <h2>Deals</h2>
+    <select id="dealType">
+        <option value="TWO_FOR_THREE">2 for 3</option>
+        <option value="BUY_ONE_GET_ONE_HALF_PRICE">Buy 1 Get 1 Half Price</option>
+    </select>
+    <input type="text" id="dealProducts" placeholder="Products (comma-separated)">
+    <button onclick="addDeal()">Add Deal</button>
+    <ul id="dealList"></ul>
+</div>
+
+<div id="basket">
+    <h2>Basket</h2>
+    <input type="text" id="basketId" placeholder="Basket ID" oninput="fetchBasket()">
+    <input type="text" id="scanItem" placeholder="Item Name (comma-separated)">
+    <button onclick="scanItems()">Scan Item</button>
+    <button onclick="clearBasket()">Clear Basket</button>
+    <h3>Scanned Items:</h3>
+    <ul id="basketContents"></ul>
+</div>
+
+<div id="checkout">
+    <h2>Checkout</h2>
+    <input type="text" id="checkoutBasketId" placeholder="Basket ID">
+    <button onclick="checkout()">Checkout</button>
+    <h3 id="total"></h3>
+</div>
+</body>
+</html>

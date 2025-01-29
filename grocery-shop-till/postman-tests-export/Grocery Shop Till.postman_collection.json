@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "a6f1a2bd-de42-403f-9007-c56402781b2a",
+		"name": "Grocery Shop Till",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30280118"
+	},
+	"item": [
+		{
+			"name": "Product tests",
+			"item": [
+				{
+					"name": "Add a product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"apple\",\r\n    \"priceInClouds\":\"50\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/products"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all products",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Delete product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/products"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Deal tests",
+			"item": [
+				{
+					"name": "Add deal",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"TWO_FOR_THREE\",\r\n  \"applicableProducts\": [\"apple\", \"banana\", \"tomato\"]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/deals"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all deals",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Delete deal",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Checkout tests",
+			"item": [
+				{
+					"name": "Scan items",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Basket tests",
+			"item": [
+				{
+					"name": "Create basket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8080/checkout/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Clear basket",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/baskets/1/clear"
+					},
+					"response": []
+				},
+				{
+					"name": "Scan basket",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get basket",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
