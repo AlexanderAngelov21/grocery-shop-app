@@ -32,6 +32,7 @@ public class CheckoutService {
         }
 
         Map<String, List<String>> deals = request.getDeals();
+        System.out.println(deals);
         List<String> twoForThreeItems = deals.getOrDefault("2 for 3", new ArrayList<>());
         List<String> buyOneGetOneHalfPriceItems = deals.getOrDefault("buy 1 get 1 half price", new ArrayList<>());
 
@@ -66,12 +67,13 @@ public class CheckoutService {
                 int quantity = itemCounts.get(item);
                 int price = productService.getProduct(item).map(Product::getPriceInClouds).orElse(0);
 
-                int pairs = quantity / 2;
-                int remainingItems = quantity % 2;
-
-                int dealCost = (pairs * 3 * price / 2) + (remainingItems * price);
-                totalCost += dealCost;
-
+                if (quantity >= 2) {
+                    totalCost += (3 * price / 2);
+                    itemCounts.put(item, quantity - 2);
+                }
+                if (itemCounts.get(item) > 0) {
+                    totalCost += itemCounts.get(item) * price;
+                }
                 itemCounts.remove(item);
             }
         }
